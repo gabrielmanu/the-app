@@ -1,27 +1,81 @@
-# TheApp
+## Date:
+User {
+  Id: string, (GUID)
+  Name: string,
+  Level: string,
+  Tests:[
+    {
+      Date: number;
+      Exercitii: [
+        {
+          Type: "Flotari",
+          Score: 25,
+          SelfAns: 0
+        }
+      ]    
+    }
+  ]
+}
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
+Exercise {
+  Id: string, (GUID)
+  Name: "Flotari",
+  Description: string,
+  Levels: [
+    {
+      Id: string, (GUID)
+      Level: "Intermediar",
+      TargetMin: 25,
+      TargetMax: 45,
+    },
+    {
+      Id: string, (GUID) 
+      Level: "beginner",
+      TargetMin: 0,
+      TargetMax: 24,
+    }
+  ]
+}
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Sreens (Pages, routes)
+Screen 0: IF > daca exista user > Screen 2: ELSE > Get User Name > Screen 1
 
-## Code scaffolding
+Screen 1: Get started:
+Form-ul
+Salvare date user
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Screen 2:
+Programul zilei
 
-## Build
+Screen 3: User Details
+Input pt Nume
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Structura de foldere:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+app/
+  /components/ 
+  - UserLogin
+  - Test
+  - DailyProgram
+  - UserDetails
 
-## Running end-to-end tests
+  - UserResponse
+/services/
+  - UserService
+    - saveUserDetails()
+    - getUserDetails()
+    - addTest
+    - getTests
+  - ProgramService
+    - private loadExercises
+    - getDailyExercise()
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+assets/
+  /data/
+    exercises.json
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    
+## keywords, code samples:

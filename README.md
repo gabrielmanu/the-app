@@ -6,7 +6,7 @@ User {
   Tests:[
     {
       Date: number;
-      Exercitii: [
+      Results: [
         {
           Type: "Flotari",
           Score: 25,
@@ -17,6 +17,7 @@ User {
   ]
 }
 
+// JSON Exterior:
 Exercise {
   Id: string, (GUID)
   Name: "Flotari",
@@ -52,6 +53,12 @@ Screen 3: User Details
 Input pt Nume
 
 
+
+/ verific daca exista user ()
+
+
+
+
 ## Structura de foldere:
 
 app/
@@ -79,3 +86,10 @@ assets/
 
     
 ## keywords, code samples:
+
+
+//  cfe thinking process:
+1. ma uit dupa date. ce tipuri de date consuma aplicatia mea?
+ - care sunt serviciile care se ocupa de fiecare identitate de date?
+
+2. Screens Logic

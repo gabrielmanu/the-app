@@ -7,11 +7,18 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 
 
 const routes: Routes = [
+  { path: 'user-login', component: UserLoginComponent },
+
+
+
   { path: 'daily-program', component: DailyProgramComponent },
   { path: 'test', component: TestComponent },
   { path: 'user-details', component: UserDetailsComponent },
-  { path: 'user-login', component: UserLoginComponent },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '',
+    redirectTo: '/user-login',
+    pathMatch: 'full'
+  },
+  { path: '**', component: UserLoginComponent }
 ];
 
 @NgModule({

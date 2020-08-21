@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor() { }
+  userName: string = 'ion';
+
+  constructor(protected userService: UserService, protected router: Router) { }
 
   ngOnInit(): void {
+
+    console.log('this.userService.user ', this.userService.user);
+
+    if (this.userService.user) {
+      this.router.navigate(['daily-program']);
+    }
+  }
+
+  onSubmitClick() {
+    console.log('userName ', this.userName);
+    this.userService.createUser(this.userName);
+    this.router.navigate(['test']);
   }
 
 }

@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/styles.scss",
+              "src/assets/scss/fonts.scss"
             ],
             "scripts": []
           },
@@ -123,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "the-app"
+    }
+  },
+  "defaultProject": "the-app",
+  "cli": {
+    "analytics": "d382418d-5aad-4858-80ad-bee12bcd4a09"
+  }
 }

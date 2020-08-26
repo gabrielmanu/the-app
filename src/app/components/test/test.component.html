@@ -1,7 +1,8 @@
-<div class="test-description">
+<div class="test-description card d-flex mx-auto w-75 p-10">
+    <h1 class="card-header">First things first </h1>
   <p>
-    Hey there, a test is needed in order to have an omptimized training. Just 15
-    min of your time and thats it. Follow the instruction on screen.
+    Hey there, a test is needed in order to have an optimized training. We are aiming for 15 to 20
+    min of your time and thats it. All you have to do is to follow the instruction on screen.
   </p>
 
   <div class="instructions">
@@ -47,8 +48,9 @@
       </div>
     </form>
   </div>
+  <button class = "btn btn-outline-info" (click)="onContinueClicked()">CONTINUE</button>
+</div>
 
-  <button class = "btn btn-primary btn-sm" (click)="onContinueClicked()">Continue</button>
   <!-- 
         > generarea paginii de first test results ( stocare intr un obiect resultate intiale)
         > quiz cu personal grading pentru fiecare ex si pertotal ( stocare intr un obiect apreciere personala)
@@ -57,4 +59,3 @@
     -->
   <ng-template #vf> </ng-template>
   <!-- <app-timer [totalSeconds]="10"></app-timer> -->
-</div>

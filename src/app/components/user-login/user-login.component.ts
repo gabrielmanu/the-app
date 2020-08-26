@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class UserLoginComponent implements OnInit {
 
-  userName: string = 'ion';
+  @Output() userName: string = '';
 
   constructor(protected userService: UserService, protected router: Router) { }
 

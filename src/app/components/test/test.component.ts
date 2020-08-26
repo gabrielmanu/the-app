@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
 import { Test } from 'src/app/types/test.interface';
+import { UserService } from '../../services/user.service';
+import { TimerComponent } from 'src/app/timer/timer.component';
 
 @Component({
   selector: 'app-test',
@@ -7,10 +9,10 @@ import { Test } from 'src/app/types/test.interface';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-
+  @ViewChild("vf",{read: ViewContainerRef}) vf: ViewContainerRef;
   test: Test;
 
-  constructor() { }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
 
@@ -30,9 +32,23 @@ export class TestComponent implements OnInit {
 
   }
 
+  
   // create new test
 
   onStopTest(){
+
+  }
+
+  onContinueClicked(){
+    let resolver = this.componentFactoryResolver.resolveComponentFactory(TimerComponent);
+    const componentRef = this.vf.createComponent(resolver);
+    componentRef.instance.totalSeconds = 300; // equiv to 5 min. 
+    console.log(componentRef)
+
+    componentRef.instance.closeBtnClick.subscribe(()=>{
+      componentRef.destroy();
+      clearInterval();
+    })
 
   }
 

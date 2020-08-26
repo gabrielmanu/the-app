@@ -49,11 +49,11 @@ export class UserService {
   }
 
   protected saveUserToLocalStorage() {
-    localStorage.setItem('GynAppUser', JSON.stringify(this._user));
+    localStorage.setItem('GymAppUser', JSON.stringify(this._user));
   }
 
   protected getUserFromLocalStorage() {
-    return JSON.parse(localStorage.getItem('GynAppUser'));
+    return JSON.parse(localStorage.getItem('GymAppUser'));
   }
 
 

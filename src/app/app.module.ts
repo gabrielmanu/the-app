@@ -8,6 +8,7 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 import { TestComponent } from './components/test/test.component';
 import { DailyProgramComponent } from './components/daily-program/daily-program.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     UserLoginComponent,
     TestComponent,
     DailyProgramComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

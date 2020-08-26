@@ -1,8 +1,9 @@
 <div class="test-description card d-flex mx-auto w-75 p-10">
-    <h1 class="card-header">First things first </h1>
+  <h1 class="card-header">First things first</h1>
   <p>
-    Hey there, a test is needed in order to have an optimized training. We are aiming for 15 to 20
-    min of your time and thats it. All you have to do is to follow the instruction on screen.
+    Hey there {{ userName }}, a test is needed in order to have an optimized
+    training. We are aiming for 15 to 20 min of your time and thats it. All you
+    have to do is to follow the instruction on screen.
   </p>
 
   <div class="instructions">
@@ -15,47 +16,35 @@
     <form>
       <label for="score-pushups" class="form-label">Push Ups</label>
       <div class="input-group mb-3 w-25">
-        <span class="input-group-text"
-          >Amount of reps:</span
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="score-pushups"
-        />
+        <span class="input-group-text">Amount of reps:</span>
+        <input type="text" class="form-control" id="score-pushups" />
       </div>
       <label for="score-squats" class="form-label">Squats</label>
       <div class="input-group mb-3 w-25">
-        <span class="input-group-text"
-          >Amount of reps:</span
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="score-squats"
-        />
+        <span class="input-group-text">Amount of reps:</span>
+        <input type="text" class="form-control" id="score-squats" />
       </div>
       <label for="score-plank" class="form-label">Plank</label>
       <div class="input-group mb-3 w-25">
-        <span class="input-group-text"
-          >Number of seconds:</span
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="score-plank"
-        />
+        <span class="input-group-text">Number of seconds:</span>
+        <input type="text" class="form-control" id="score-plank" />
       </div>
     </form>
   </div>
-  <button class = "btn btn-outline-info" (click)="onContinueClicked()">CONTINUE</button>
+  <button class="btn btn-outline-info" (click)="onContinueClicked()">
+    CONTINUE
+  </button>
 </div>
 
-  <!-- 
+<!-- 
         > generarea paginii de first test results ( stocare intr un obiect resultate intiale)
         > quiz cu personal grading pentru fiecare ex si pertotal ( stocare intr un obiect apreciere personala)
         > afisare scor folosit ca baza pentru generarea structurii antrenamentelor. (ma gandesc la algoritm)
 
     -->
-  <ng-template #vf> </ng-template>
-  <!-- <app-timer [totalSeconds]="10"></app-timer> -->
+<!-- <ng-template #vf> </ng-template> -->
+<app-timer
+  *ngIf="showTimer"
+  [totalSeconds]="10"
+  (closeBtnClick)="onCloseCounterClicked()"
+></app-timer>

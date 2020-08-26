@@ -11,8 +11,13 @@ import { TimerComponent } from 'src/app/timer/timer.component';
 export class TestComponent implements OnInit {
   @ViewChild("vf",{read: ViewContainerRef}) vf: ViewContainerRef;
   test: Test;
+  showTimer: boolean = false;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  get userName() {
+    return this.userService.user.Name
+  }
+
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private userService: UserService) { }
 
   ngOnInit(): void {
 
@@ -40,16 +45,21 @@ export class TestComponent implements OnInit {
   }
 
   onContinueClicked(){
-    let resolver = this.componentFactoryResolver.resolveComponentFactory(TimerComponent);
-    const componentRef = this.vf.createComponent(resolver);
-    componentRef.instance.totalSeconds = 300; // equiv to 5 min. 
-    console.log(componentRef)
+    this.showTimer = true;
+    // let resolver = this.componentFactoryResolver.resolveComponentFactory(TimerComponent);
+    // const componentRef = this.vf.createComponent(resolver);
+    // componentRef.instance.totalSeconds = 300; // equiv to 5 min. 
+    // console.log(componentRef)
 
-    componentRef.instance.closeBtnClick.subscribe(()=>{
-      componentRef.destroy();
-      clearInterval();
-    })
+    // componentRef.instance.closeBtnClick.subscribe(()=>{
+    //   componentRef.destroy();
+    //   clearInterval();
+    // })
 
+  }
+
+  onCloseCounterClicked(){
+    this.showTimer = false;
   }
 
 }

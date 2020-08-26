@@ -1,48 +1,55 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss']
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit, OnDestroy {
   @Input() totalSeconds: number;
-
-  public closeBtnClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() closeBtnClick: EventEmitter<any> = new EventEmitter<any>();
   // time = this.timerMinutes*60;
-
+  updateInterval: any;
+  countdownDisplay: string;
+  
 
 
 
   constructor() { }
 
   ngOnInit(): void {
+    // this.countdownDisplay
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.updateInterval)
   }
   
 
 
   updateTimerCount() {
-    const updateInterval = setInterval(()=> {
+    clearInterval(this.updateInterval);
+    this.updateInterval = setInterval(()=> {
 
       if (this.totalSeconds <= 0) {
-        alert("timer done")
-        clearInterval(updateInterval);
+        this.onCloseBtnClicked();
         return
       } 
       
       let minutes = Math.floor(this.totalSeconds/60);
       let seconds = this.totalSeconds % 60;
 
-      const countdownDisplayEl= document.getElementById("countdown-display");
-      countdownDisplayEl.innerHTML =`${minutes} : ${seconds}`
-
-       this.totalSeconds--;
+      this.countdownDisplay =`${minutes} : ${seconds}`
+      this.totalSeconds--;
        
-      console.log("increment down")
+      console.log("incrementing down")
     },1000)
 
   }
+
   onCloseBtnClicked(){
+    clearInterval(this.updateInterval);
+    this.countdownDisplay = '';
     this.closeBtnClick.emit();
     console.log("close btn was clicked")
   }

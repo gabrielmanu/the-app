@@ -42,9 +42,11 @@
         > afisare scor folosit ca baza pentru generarea structurii antrenamentelor. (ma gandesc la algoritm)
 
     -->
-<!-- <ng-template #vf> </ng-template> -->
+    
+
 <app-timer
   *ngIf="showTimer"
-  [totalSeconds]="10"
+  [totalSeconds]="300"
   (closeBtnClick)="onCloseCounterClicked()"
 ></app-timer>
+ 

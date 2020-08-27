@@ -20,7 +20,7 @@ export class UserService {
 
   constructor() {
     this._user = this.getUserFromLocalStorage();
-    console.log('UserService . thuis_user ', this._user);
+    console.log('UserService . this_user ', this._user);
   }
 
   public createUser(userName: string): void {
@@ -57,6 +57,9 @@ export class UserService {
     return JSON.parse(localStorage.getItem('GymAppUser'));
   }
 
+  public deleteUserFromLocalStorage(storedUser) {
+    return localStorage.removeItem(storedUser)
+  }
 
 
 

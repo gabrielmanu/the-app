@@ -11,6 +11,7 @@ export class TimerComponent implements OnInit, OnDestroy {
   // time = this.timerMinutes*60;
   updateInterval: any;
   countdownDisplay: string;
+  countdownStarted: boolean = false;
   
 
 
@@ -25,9 +26,12 @@ export class TimerComponent implements OnInit, OnDestroy {
     clearInterval(this.updateInterval)
   }
   
-
+  set totalSecondsInput(seconds: number) {
+    this.totalSeconds = seconds;
+  }
 
   updateTimerCount() {
+    this.countdownStarted = true;
     clearInterval(this.updateInterval);
     this.updateInterval = setInterval(()=> {
 
@@ -45,6 +49,7 @@ export class TimerComponent implements OnInit, OnDestroy {
       console.log("incrementing down")
     },1000)
 
+
   }
 
   onCloseBtnClicked(){
@@ -52,5 +57,11 @@ export class TimerComponent implements OnInit, OnDestroy {
     this.countdownDisplay = '';
     this.closeBtnClick.emit();
     console.log("close btn was clicked")
+  }
+
+  onPauseBtnClicked(){
+    console.log("the pause button was clicked");
+    clearInterval(this.updateInterval);
+    this.countdownStarted = false;
   }
 }

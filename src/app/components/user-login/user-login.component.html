@@ -1,5 +1,7 @@
 <h4> Insert your name: </h4>
+<div class="input-group mb-3 w-25">
+    <input type="string" name="user-name" [(ngModel)]="userName">
+    
+    <button class="btn btn-outline-info" (click)="onSubmitClick()">Submit</button>
 
-<input type="string" name="user-name" [(ngModel)]="userName">
-
-<button (click)="onSubmitClick()">Submit</button>
+</div>

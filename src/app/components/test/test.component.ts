@@ -46,15 +46,6 @@ export class TestComponent implements OnInit {
 
   onContinueClicked(){
     this.showTimer = true;
-    // let resolver = this.componentFactoryResolver.resolveComponentFactory(TimerComponent);
-    // const componentRef = this.vf.createComponent(resolver);
-    // componentRef.instance.totalSeconds = 300; // equiv to 5 min. 
-    // console.log(componentRef)
-
-    // componentRef.instance.closeBtnClick.subscribe(()=>{
-    //   componentRef.destroy();
-    //   clearInterval();
-    // })
 
   }
 

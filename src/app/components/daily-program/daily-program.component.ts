@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-daily-program',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DailyProgramComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
+
+
+  onClearUserClicked() {
+    this.userService.deleteUserFromLocalStorage(this.userService.user);
+    console.log("user cleared")
+  }
+
 
 }

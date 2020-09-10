@@ -1,35 +1,32 @@
-<div class="test-description card d-flex mx-auto w-75 p-10">
-  <h1 class="card-header">First things first</h1>
-  <p>
-    Hey there {{ userName }}, a test is needed in order to have an optimized
-    training. We are aiming for 15 to 20 min of your time and thats it. All you
-    have to do is to follow the instruction on screen.
-  </p>
-
-  <div class="instructions">
-    <p>
-      Mesaj paragraf descriere test in sine. Descrierea exercitiilor si un mic
-      warm up.
+<div class="card d-flex mx-auto w-75">
+  <div class="screen-header">
+    <h1 class="card-header">First things first</h1>
+    <p class="p-2">
+      Hey there {{ userName }}, a test is needed in order to have an optimized
+      training. We are aiming for 15 to 20 min of your time and thats it. All you
+      have to do is to follow the instruction on screen.
     </p>
+    <div class="instructions">
+      <p>
+        ***De adaugat componenta cu INSTRUCTIONS.
+        Mesaj paragraf descriere test in sine. Descrierea exercitiilor si un mic
+        warm up.
+      </p>
+    </div>
+    
   </div>
-  <div class="test-results">
-    <form>
-      <label for="score-pushups" class="form-label">Push Ups</label>
-      <div class="input-group mb-3 w-25">
-        <span class="input-group-text">Amount of reps:</span>
-        <input type="text" class="form-control" id="score-pushups" />
-      </div>
-      <label for="score-squats" class="form-label">Squats</label>
-      <div class="input-group mb-3 w-25">
-        <span class="input-group-text">Amount of reps:</span>
-        <input type="text" class="form-control" id="score-squats" />
-      </div>
-      <label for="score-plank" class="form-label">Plank</label>
-      <div class="input-group mb-3 w-25">
-        <span class="input-group-text">Number of seconds:</span>
-        <input type="text" class="form-control" id="score-plank" />
-      </div>
-    </form>
+
+
+  <div class="test-results p-2" >
+    <div class="row gx-5">
+      <app-main-rating 
+      class="col-sm" 
+      *ngIf="showMainRating"
+      (submitBtnClick)="onSubmitBtnClicked()"></app-main-rating>
+      
+      <app-self-rating class="col-sm" *ngIf="showSelfRating"></app-self-rating>
+
+    </div>
   </div>
   <button class="btn btn-outline-info" (click)="onContinueClicked()">
     CONTINUE
@@ -46,7 +43,6 @@
 
 <app-timer
   *ngIf="showTimer"
-  [totalSeconds]="300"
   (closeBtnClick)="onCloseCounterClicked()"
 ></app-timer>
  

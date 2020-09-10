@@ -6,9 +6,10 @@ import { Component, OnInit, Output, Input, EventEmitter, OnDestroy } from '@angu
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit, OnDestroy {
-  @Input() totalSeconds: number;
+  totalSeconds: number;
+  totalSecondsStart: number;
   @Output() closeBtnClick: EventEmitter<any> = new EventEmitter<any>();
-  // time = this.timerMinutes*60;
+
   updateInterval: any;
   countdownDisplay: string;
   countdownStarted: boolean = false;
@@ -31,7 +32,17 @@ export class TimerComponent implements OnInit, OnDestroy {
   }
 
   updateTimerCount() {
+    console.log("this.totalSeconds",this.totalSeconds)
+    console.log("this.totalSecondsStart",this.totalSecondsStart)
     this.countdownStarted = true;
+
+    //todo - accept new value for time interval ? (hint: event onChange pe input - resetare totalseconds posibil )
+
+    // this.totalSeconds = this.totalSeconds == undefined ?  this.totalSecondsStart : this.totalSeconds;
+    if ( this.totalSeconds == undefined) {
+      this.totalSeconds = this.totalSecondsStart
+    } 
+
     clearInterval(this.updateInterval);
     this.updateInterval = setInterval(()=> {
 

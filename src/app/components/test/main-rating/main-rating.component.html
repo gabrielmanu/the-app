@@ -1,0 +1,26 @@
+<form #testForm="ngForm" >
+  <label for="score-pushups" class="form-label">Push Ups</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text">Amount of reps:</span>
+    <input type="text" ngModel class="form-control" id="score-pushups" name = "pushupScore" />
+  </div>
+
+  <label for="score-squats" class="form-label">Squats</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text">Amount of reps:</span>
+    <input type="text" ngModel class="form-control" id="score-squats" name="squatScore" />
+  </div>
+  
+  <label for="score-plank" class="form-label">Plank</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text">Number of seconds:</span>
+    <input type="text" ngModel class="form-control" id="score-plank" name="plankScore" />
+  </div>
+  <button 
+  type="submit"
+  class="btn btn-outline-info mb-2"
+  (click)="onSubmitBtnClicked(testForm.value)"
+  >Submit
+  </button>
+</form>
+

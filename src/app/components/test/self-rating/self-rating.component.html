@@ -1,0 +1,44 @@
+<p>
+  Please rate the difficulty of the exercises. It will serve as a reference for
+  your progress.
+</p>
+<form #selfRatingForm="ngForm">
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="rating-pushups">Push Ups</label>
+    <select class="custom-select" id="rating-pushups" name="pushupsRating" >
+      <option selected>Choose...</option>
+      <option  *ngFor="let rating of ratings">
+        {{ rating }}
+      </option>
+    </select>
+  </div>
+
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="rating-squats">Squats</label>
+
+    <select class="custom-select" id="rating-squats" >
+      <option selected>Choose...</option>
+      <option  *ngFor="let rating of ratings">
+        {{ rating }}
+      </option>
+    </select>
+  </div>
+
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="rating-plank">Planks</label>
+
+    <select class="custom-select" id="rating-plank">
+      <option selected>Choose...</option>
+      <option  *ngFor="let rating of ratings">
+        {{ rating }}
+      </option>
+    </select>
+  </div>
+
+  <button
+    class="btn btn-outline-primary"
+    (click)="onSaveBtnClicked(selfRatingForm.value)"
+  >
+    Save your personal rating
+  </button>
+</form>

@@ -1,3 +1,10 @@
-<p>daily-program works!</p>
+<div class="card d-flex mx-auto w-75">
+    
+    <h1 class = "card-header"> Hey this is your daily program</h1>
+    
+    <app-basic-workout></app-basic-workout>
+    <app-timer  (closeBtnClick)="onCloseCounterClicked()"></app-timer>
 
+
+</div>
 <button class="btn btn-outline-info" (click)="onClearUserClicked()">Clear User</button>

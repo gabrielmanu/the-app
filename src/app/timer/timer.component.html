@@ -1,17 +1,24 @@
 <div class="container">
-  <h1>Countdown Timer</h1>
+
+
+  <h1>
+    Countdown Timer
+    <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+  </h1>
   <label for="timer-input" class="form-label">Timer Input</label>
   <div class="input-group mb-3 w-20">
     <span class="input-group-text">Seconds:</span>
-    <input type="text" class="form-control" id="timer-input" />
+    <input [(ngModel)]="totalSecondsStart" type="text" class="form-control" id="timer-input" />
   </div>
+
   <button
     *ngIf="!countdownStarted"
     id="countdown-btn"
     (click)="updateTimerCount()"
     class="btn btn-primary"
   >
-    Start <i class="fa fa-pause" aria-hidden="true"></i>
+    Start
   </button>
   <button
     *ngIf="countdownStarted"
@@ -19,12 +26,12 @@
     (click)="onPauseBtnClicked()"
     class="btn btn-outline-primary"
   >
-    Pause
+    Pause  <i class="fa fa-pause" aria-hidden="true"></i>
   </button>
   <p>
     Time left: <span id="countdown-display">{{ countdownDisplay }}</span>
   </p>
   <button class="btn btn-outline-success" (click)="onCloseBtnClicked()">
-    Close Counter
+    Close Counter 
   </button>
 </div>

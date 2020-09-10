@@ -1,7 +1,10 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
 import { Test } from 'src/app/types/test.interface';
+import { Score } from '../../types/score.interface'
+
 import { UserService } from '../../services/user.service';
 import { TimerComponent } from 'src/app/timer/timer.component';
+
 
 @Component({
   selector: 'app-test',
@@ -9,7 +12,11 @@ import { TimerComponent } from 'src/app/timer/timer.component';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-  @ViewChild("vf",{read: ViewContainerRef}) vf: ViewContainerRef;
+  showMainRating: boolean = true;
+  showSelfRating: boolean = false;
+
+
+  // @ViewChild("vf",{read: ViewContainerRef}) vf: ViewContainerRef;
   test: Test;
   showTimer: boolean = false;
 
@@ -21,10 +28,6 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // TODO: UI counter
-
-    // TODO: if count === 0 > stop test
-
     // Calculate score
 
     // input > self testing
@@ -33,24 +36,20 @@ export class TestComponent implements OnInit {
 
     // navigate to > test result path
 
-    // setTimeout()
-
   }
 
   
   // create new test
 
-  onStopTest(){
-
-  }
-
   onContinueClicked(){
     this.showTimer = true;
-
   }
 
   onCloseCounterClicked(){
     this.showTimer = false;
   }
 
+  onSubmitBtnClicked(){
+    this.showSelfRating = true;
+  }
 }

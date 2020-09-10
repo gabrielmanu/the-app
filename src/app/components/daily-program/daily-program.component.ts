@@ -15,9 +15,12 @@ export class DailyProgramComponent implements OnInit {
 
 
   onClearUserClicked() {
-    this.userService.deleteUserFromLocalStorage(this.userService.user);
+    this.userService.deleteUserFromLocalStorage();
     console.log("user cleared")
   }
 
+  onCloseCounterClicked(){
+    console.log('the counter was closed')
+  }
 
 }

@@ -9,6 +9,9 @@ import { TestComponent } from './components/test/test.component';
 import { DailyProgramComponent } from './components/daily-program/daily-program.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { TimerComponent } from './timer/timer.component';
+import { MainRatingComponent } from './components/test/main-rating/main-rating.component';
+import { SelfRatingComponent } from './components/test/self-rating/self-rating.component';
+import { BasicWorkoutComponent } from './components/daily-program/basic-workout/basic-workout.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { TimerComponent } from './timer/timer.component';
     TestComponent,
     DailyProgramComponent,
     UserDetailsComponent,
-    TimerComponent
+    TimerComponent,
+    SelfRatingComponent,
+    MainRatingComponent,
+    BasicWorkoutComponent
   ],
   imports: [
     BrowserModule,

@@ -13,11 +13,6 @@ export class UserService {
     return this._user;
   }
   
-
-  // set user(value: User) {
-  //   this._user = value;
-  // }
-
   constructor() {
     this._user = this.getUserFromLocalStorage();
     console.log('UserService . this_user ', this._user);
@@ -57,8 +52,9 @@ export class UserService {
     return JSON.parse(localStorage.getItem('GymAppUser'));
   }
 
-  public deleteUserFromLocalStorage(storedUser) {
-    return localStorage.removeItem(storedUser)
+  public deleteUserFromLocalStorage() {
+    this._user = null;
+    localStorage.removeItem('GymAppUser')
   }
 
 
